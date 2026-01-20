@@ -2,15 +2,19 @@
 
 import { addData } from "@/actions/data-actions";
 
-export default function AddDataForm() {
+export default function AddDataForm({
+  onAdd,
+}: {
+  onAdd: (value: string) => void;
+}) {
   return (
     <form
       action={async (formData: FormData) => {
         const value = formData.get("data");
-
         if (typeof value !== "string" || !value.trim()) return;
 
-        await addData(value);
+        onAdd(value);        // optimistic update
+        await addData(value); // server action
       }}
       className="flex gap-2 items-center"
     >

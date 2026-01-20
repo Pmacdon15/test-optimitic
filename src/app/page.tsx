@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 import DataDisplay from "@/componenets/data-display";
-import AddDataForm from "@/componenets/forms/add-data-form";
 import { fetchData } from "../dal/dal";
 
 export default async function Home() {
@@ -11,7 +10,6 @@ export default async function Home() {
       <Suspense>
         <DataDisplay dataPromise={dataPromise} />
       </Suspense>
-      <AddDataForm />
     </div>
   );
 }

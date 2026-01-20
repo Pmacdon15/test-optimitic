@@ -5,7 +5,7 @@ import { updateTag } from "next/cache";
 import type { Data } from "@/types/data-types";
 
 export async function addData(value: string): Promise<Data> {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   const sql = neon(String(process.env.DATABASE_URL));
 
   try {
@@ -24,7 +24,7 @@ export async function addData(value: string): Promise<Data> {
 
 // Delete data by ID
 export async function deleteData(id: number): Promise<Data | null> {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
 
   const sql = neon(String(process.env.DATABASE_URL));
 
